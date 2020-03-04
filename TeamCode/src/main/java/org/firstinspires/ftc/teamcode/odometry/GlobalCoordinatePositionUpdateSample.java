@@ -70,7 +70,7 @@ public class GlobalCoordinatePositionUpdateSample extends TeleOpBase {
         new MoveRobotAction.MoveRobotArmsDriver(this, true);
         new IntakeAction(this);
 //        new ArmsAction.ArmsElevation(this);
-//        new ArmsAction.ArmsMacaraAndPickup(this, true);
+//        new ArmsAction.ArmsPlacingAndPickup(this, true);
 
         globalPositionUpdate.reverseRightEncoder();
         while(opModeIsActive()){

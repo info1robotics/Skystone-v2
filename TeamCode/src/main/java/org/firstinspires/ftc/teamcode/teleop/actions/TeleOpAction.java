@@ -8,6 +8,9 @@ import org.firstinspires.ftc.teamcode.arm.IntakeController;
 import org.firstinspires.ftc.teamcode.movement.MovementController;
 import org.firstinspires.ftc.teamcode.teleop.TeleOpBase;
 
+import roadrunner.drive.mecanum.SampleMecanumDriveBase;
+import roadrunner.drive.mecanum.SampleMecanumDriveREV;
+
 public abstract class TeleOpAction {
 
     TeleOpBase opMode;
@@ -47,7 +50,6 @@ public abstract class TeleOpAction {
                 onThreadDestruction();
             }
         };
-        attachedThread.setPriority(10);
         attachedThread.setName(getClass().getSimpleName());
         attachedThread.start();
     }

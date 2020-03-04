@@ -24,10 +24,10 @@ public class ArmsAction {
         }
     }
 
-    public static class ArmsMacaraAndPickup extends TeleOpAction {
+    public static class ArmsPlacingAndPickup extends TeleOpAction {
 
-        static boolean macaraExtended = false;
-        public ArmsMacaraAndPickup(TeleOpBase opMode, boolean useThread) {
+        static boolean placingExtended = false;
+        public ArmsPlacingAndPickup(TeleOpBase opMode) {
             super(opMode);
         }
 
@@ -35,10 +35,10 @@ public class ArmsAction {
         public void run() {
 
             if(gamepad2.right_bumper || gamepad1.right_bumper) {
-                if(macaraExtended)
-                    armsController.retractMacara();
-                else armsController.extendMacara();
-                macaraExtended = !macaraExtended;
+                if(placingExtended)
+                    armsController.retractPlacing();
+                else armsController.extendPlacing();
+                placingExtended = !placingExtended;
                 try {
                     Thread.sleep(300);
                 } catch (InterruptedException e) {

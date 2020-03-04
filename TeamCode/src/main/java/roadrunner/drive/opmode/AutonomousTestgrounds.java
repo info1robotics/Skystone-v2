@@ -6,7 +6,6 @@ import com.acmerobotics.dashboard.config.Config;
 import com.acmerobotics.roadrunner.geometry.Pose2d;
 import com.acmerobotics.roadrunner.geometry.Vector2d;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
-import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import org.firstinspires.ftc.teamcode.arm.ArmsController;
 
@@ -58,8 +57,8 @@ public class AutonomousTestgrounds extends AutonomousBase {
             }
             default: {
 //                throw new IllegalCaseException("No skystones detected!");
-                autonomousController.followTrajectorySync(
-                        autonomousController.trajectoryBuilder()
+                roadController.followTrajectorySync(
+                        roadController.trajectoryBuilder()
                                 .splineTo(new Pose2d(27.5, -3, Math.toRadians(93)))
                                 .build()
                 );
@@ -68,14 +67,14 @@ public class AutonomousTestgrounds extends AutonomousBase {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                autonomousController.followTrajectorySync(
-                        autonomousController.trajectoryBuilder()
+                roadController.followTrajectorySync(
+                        roadController.trajectoryBuilder()
                         .strafeTo(new Vector2d(20, -70))
                         .build()
                 );
-                autonomousController.turnSync(Math.toRadians(87));
-                autonomousController.followTrajectorySync(
-                        autonomousController.trajectoryBuilder()
+                roadController.turnSync(Math.toRadians(87));
+                roadController.followTrajectorySync(
+                        roadController.trajectoryBuilder()
                         .back(16.0)
                         .build()
                 );
@@ -90,13 +89,13 @@ public class AutonomousTestgrounds extends AutonomousBase {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                autonomousController.followTrajectorySync(
-                        autonomousController.trajectoryBuilder()
+                roadController.followTrajectorySync(
+                        roadController.trajectoryBuilder()
                         .splineTo(new Pose2d(20, -15, Math.toRadians(90)))
                         .build()
                 );
-                autonomousController.followTrajectorySync(
-                        autonomousController.trajectoryBuilder()
+                roadController.followTrajectorySync(
+                        roadController.trajectoryBuilder()
                         .back(35)
                         .build()
                 );
@@ -107,31 +106,31 @@ public class AutonomousTestgrounds extends AutonomousBase {
                     e.printStackTrace();
                 }
 
-                autonomousController.followTrajectory(
-                        autonomousController.trajectoryBuilder()
+                roadController.followTrajectory(
+                        roadController.trajectoryBuilder()
                         .forward(30)
                         .build()
                 );
-//                autonomousController.followTrajectorySync(
-//                        autonomousController.trajectoryBuilder()
+//                roadController.followTrajectorySync(
+//                        roadController.trajectoryBuilder()
 //                                .strafeRight(12)
 //                                .build()
 //                );
-//                autonomousController.turnSync(Math.toRadians(90));
-//                autonomousController.followTrajectorySync(
-//                        autonomousController.trajectoryBuilder()
+//                roadController.turnSync(Math.toRadians(90));
+//                roadController.followTrajectorySync(
+//                        roadController.trajectoryBuilder()
 //                            .splineTo(new Pose2d(15, -50, Math.toRadians(90)))
 //                        .build()
 //                );
-//                autonomousController.followTrajectorySync(
-//                        autonomousController.trajectoryBuilder()
+//                roadController.followTrajectorySync(
+//                        roadController.trajectoryBuilder()
 //                                .strafeLeft(12)
 //                                .build()
 //                );
-//                autonomousController.turnSync(Math.toRadians(8));
+//                roadController.turnSync(Math.toRadians(8));
 //
-//                autonomousController.followTrajectorySync(
-//                        autonomousController.trajectoryBuilder()
+//                roadController.followTrajectorySync(
+//                        roadController.trajectoryBuilder()
 //                                .forward(120)
 //                                .build()
 //                );

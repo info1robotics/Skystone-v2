@@ -7,7 +7,6 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 import org.firstinspires.ftc.teamcode.arm.ArmsController;
 import org.firstinspires.ftc.teamcode.arm.IntakeController;
 import org.firstinspires.ftc.teamcode.movement.MovementController;
-import org.firstinspires.ftc.teamcode.vision.WebcamVision;
 
 import roadrunner.drive.mecanum.SampleMecanumDriveBase;
 import roadrunner.drive.mecanum.SampleMecanumDriveREV;
@@ -17,7 +16,7 @@ public abstract class AutonomousBase extends LinearOpMode {
     public ArmsController armController;
     public IntakeController intakeController;
 //    public WebcamVision visionController;
-    public SampleMecanumDriveBase autonomousController;
+    public SampleMecanumDriveBase roadController;
 
     private FtcDashboard dashboard;
     protected Telemetry dashboardTelemetry;
@@ -34,7 +33,7 @@ public abstract class AutonomousBase extends LinearOpMode {
         armController = new ArmsController(hardwareMap, telemetry, this);
         intakeController = new IntakeController(hardwareMap, telemetry, this);
 //        visionController = new WebcamVision(hardwareMap, dashboardTelemetry);
-        autonomousController = new SampleMecanumDriveREV(hardwareMap);
+        roadController = new SampleMecanumDriveREV(hardwareMap);
 
         //FtcDashboard.getInstance().startCameraStream(visionController.tfod, 0);
 

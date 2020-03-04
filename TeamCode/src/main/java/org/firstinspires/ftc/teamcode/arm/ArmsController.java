@@ -16,7 +16,7 @@ public class ArmsController {
 
     private DcMotor motorArm1, motorArm2;
     Servo foundationHook1, foundationHook2;
-    Servo servoMacara;
+    Servo servoPlacing;
     Servo servoCarlig;
 
     boolean isCarligHolding = false;
@@ -30,15 +30,15 @@ public class ArmsController {
 
         motorArm1 = hardwareMap.get(DcMotor.class, "motorArm1");
         motorArm2 = hardwareMap.get(DcMotor.class, "motorArm2");
-        servoMacara = hardwareMap.get(Servo.class, "servoMacara");
+        servoPlacing = hardwareMap.get(Servo.class, "servoPlacing");
         servoCarlig = hardwareMap.get(Servo.class, "servoCarlig");
 
 
         motorArm1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         motorArm2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
-//        servoMacara.setDirection(Servo.Direction.REVERSE);
-//        servoMacara.setPosition(AppConstants.servoMotors.MACARA_IDLE);
+//        servoPlacing.setDirection(Servo.Direction.REVERSE);
+//        servoPlacing.setPosition(AppConstants.servoMotors.PLACING_IDLE);
         servoCarlig.setPosition(AppConstants.servoMotors.CARLIG_IDLE);
 
 
@@ -54,12 +54,12 @@ public class ArmsController {
         motorArm2.setPower(speed);
     }
 
-    public void extendMacara() {
-        servoMacara.setPosition(AppConstants.servoMotors.MACARA_EXTENDED);
+    public void extendPlacing() {
+        servoPlacing.setPosition(AppConstants.servoMotors.PLACING_EXTENDED);
     }
 
-    public void retractMacara() {
-        servoMacara.setPosition(AppConstants.servoMotors.MACARA_IDLE);
+    public void retractPlacing() {
+        servoPlacing.setPosition(AppConstants.servoMotors.PLACING_IDLE);
     }
 
     public void servoCarligToggle() {

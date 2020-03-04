@@ -32,8 +32,8 @@ public class AppConstants {
         public static double CARLIG_HOLD = 1.0;
         public static double CARLIG_IDLE = 0.0;
 
-        public static double MACARA_EXTENDED = 1.0;
-        public static double MACARA_IDLE = 0.0;
+        public static double PLACING_EXTENDED = 1.0;
+        public static double PLACING_IDLE = 0.0;
 
         public static double FOUNDATION_HOOK_IDLE = 1.0;
         public static double FOUNDATION_HOOK_HOLD = 0.0;
