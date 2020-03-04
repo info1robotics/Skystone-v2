@@ -14,10 +14,10 @@ public class ArmsController {
 
     private LinearOpMode opMode;
 
-    private DcMotor motorArm1, motorArm2;
+    private DcMotor liftingArm1, liftingArm2;
     Servo foundationHook1, foundationHook2;
     Servo servoPlacing;
-    Servo servoCarlig;
+    Servo stoneHook;
 
     boolean isCarligHolding = false;
 
@@ -28,30 +28,30 @@ public class ArmsController {
         foundationHook1 = hardwareMap.get(Servo.class, "foundationHook1");
         foundationHook2 = hardwareMap.get(Servo.class, "foundationHook2");
 
-        motorArm1 = hardwareMap.get(DcMotor.class, "motorArm1");
-        motorArm2 = hardwareMap.get(DcMotor.class, "motorArm2");
+        liftingArm1 = hardwareMap.get(DcMotor.class, "liftingArm1");
+        liftingArm2 = hardwareMap.get(DcMotor.class, "liftingArm2");
         servoPlacing = hardwareMap.get(Servo.class, "servoPlacing");
-        servoCarlig = hardwareMap.get(Servo.class, "servoCarlig");
+        stoneHook = hardwareMap.get(Servo.class, "stoneHook");
 
 
-        motorArm1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
-        motorArm2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        liftingArm1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        liftingArm2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
 //        servoPlacing.setDirection(Servo.Direction.REVERSE);
 //        servoPlacing.setPosition(AppConstants.servoMotors.PLACING_IDLE);
-        servoCarlig.setPosition(AppConstants.servoMotors.CARLIG_IDLE);
+        stoneHook.setPosition(AppConstants.servoMotors.STONE_HOOK_IDLE);
 
 
     }
 
     public void arm1Up(double speed) {
-        motorArm1.setPower(speed);
-        motorArm2.setPower(-1.0 * speed);
+        liftingArm1.setPower(speed);
+        liftingArm2.setPower(-1.0 * speed);
     }
 
     public void arm1Down(double speed) {
-        motorArm1.setPower(-1.0 * speed);
-        motorArm2.setPower(speed);
+        liftingArm1.setPower(-1.0 * speed);
+        liftingArm2.setPower(speed);
     }
 
     public void extendPlacing() {
@@ -62,18 +62,18 @@ public class ArmsController {
         servoPlacing.setPosition(AppConstants.servoMotors.PLACING_IDLE);
     }
 
-    public void servoCarligToggle() {
+    public void stoneHookToggle() {
         if(isCarligHolding) {
-            servoCarlig.setPosition(AppConstants.servoMotors.CARLIG_IDLE);
+            stoneHook.setPosition(AppConstants.servoMotors.STONE_HOOK_IDLE);
         } else {
-            servoCarlig.setPosition(AppConstants.servoMotors.CARLIG_HOLD);
+            stoneHook.setPosition(AppConstants.servoMotors.CARLIG_HOLD);
         }
         isCarligHolding = !isCarligHolding;
     }
 
     public void stopDc() {
-        motorArm1.setPower(0);
-        motorArm2.setPower(0);
+        liftingArm1.setPower(0);
+        liftingArm2.setPower(0);
     }
 
     public void grabFoundation() {

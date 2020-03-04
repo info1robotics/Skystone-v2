@@ -29,8 +29,8 @@ public class AppConstants {
 
     @Config
     public static class servoMotors {
-        public static double CARLIG_HOLD = 1.0;
-        public static double CARLIG_IDLE = 0.0;
+        public static double STONE_HOOK_HOLD = 1.0;
+        public static double STONE_HOOK_IDLE = 0.0;
 
         public static double PLACING_EXTENDED = 1.0;
         public static double PLACING_IDLE = 0.0;

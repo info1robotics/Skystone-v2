@@ -47,7 +47,7 @@ public class ArmsAction {
             }
 
             if(gamepad2.x || gamepad1.left_bumper) {
-                armsController.servoCarligToggle();
+                armsController.stoneHookToggle();
                 try {
                     Thread.sleep(300);
                 } catch (InterruptedException e) {
