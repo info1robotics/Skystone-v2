@@ -66,7 +66,7 @@ public class ArmsController {
         if(isCarligHolding) {
             stoneHook.setPosition(AppConstants.servoMotors.STONE_HOOK_IDLE);
         } else {
-            stoneHook.setPosition(AppConstants.servoMotors.CARLIG_HOLD);
+            stoneHook.setPosition(AppConstants.servoMotors.STONE_HOOK_HOLD);
         }
         isCarligHolding = !isCarligHolding;
     }
