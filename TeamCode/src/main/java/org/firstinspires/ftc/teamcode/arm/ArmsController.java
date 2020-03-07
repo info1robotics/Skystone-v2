@@ -19,6 +19,8 @@ public class ArmsController {
     Servo servoPlacing;
     Servo stoneHook;
 
+    Servo stoneClawElevator, stoneClawGrabber;
+
     boolean isCarligHolding = false;
 
     public ArmsController(HardwareMap hardwareMap, Telemetry console, LinearOpMode opMode) {
@@ -33,6 +35,8 @@ public class ArmsController {
         servoPlacing = hardwareMap.get(Servo.class, "servoPlacing");
         stoneHook = hardwareMap.get(Servo.class, "stoneHook");
 
+        stoneClawElevator = hardwareMap.get(Servo.class, "stoneClawElevator");
+        stoneClawGrabber = hardwareMap.get(Servo.class, "stoneClawGrabber");
 
         liftingArm1.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         liftingArm2.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -41,15 +45,18 @@ public class ArmsController {
 //        servoPlacing.setPosition(AppConstants.servoMotors.PLACING_IDLE);
         stoneHook.setPosition(AppConstants.servoMotors.STONE_HOOK_IDLE);
 
+        stoneClawElevator.setPosition(AppConstants.servoMotors.STONE_CLAW_ELEVATOR_UP);
+        stoneClawGrabber.setPosition(AppConstants.servoMotors.STONE_CLAW_GRABBER_IDLE);
+
 
     }
 
-    public void arm1Up(double speed) {
+    public void ascendArm(double speed) {
         liftingArm1.setPower(speed);
         liftingArm2.setPower(-1.0 * speed);
     }
 
-    public void arm1Down(double speed) {
+    public void descendArm(double speed) {
         liftingArm1.setPower(-1.0 * speed);
         liftingArm2.setPower(speed);
     }
@@ -86,6 +93,20 @@ public class ArmsController {
         foundationHook2.setPosition(1.0 - AppConstants.servoMotors.FOUNDATION_HOOK_HOLD);
     }
 
+    public void descendClaw() {
+        stoneClawElevator.setPosition(AppConstants.servoMotors.STONE_CLAW_ELEVATOR_DOWN);
+    }
 
+    public void ascendClaw() {
+        stoneClawElevator.setPosition(AppConstants.servoMotors.STONE_CLAW_ELEVATOR_UP);
+    }
+
+    public void grabClaw() {
+        stoneClawElevator.setPosition(AppConstants.servoMotors.STONE_CLAW_GRABBER_HOLD);
+    }
+
+    public void releaseClaw() {
+        stoneClawElevator.setPosition(AppConstants.servoMotors.STONE_CLAW_GRABBER_IDLE);
+    }
 
 }

@@ -12,9 +12,9 @@ public class ArmsAction {
         @Override
         public void run() {
             if(gamepad2.left_trigger > 0)
-                armsController.arm1Up(gamepad2.left_trigger);
+                armsController.ascendArm(gamepad2.left_trigger);
             else if(gamepad2.right_trigger > 0)
-                armsController.arm1Down(gamepad2.right_trigger);
+                armsController.descendArm(gamepad2.right_trigger);
             else armsController.stopDc();
         }
 

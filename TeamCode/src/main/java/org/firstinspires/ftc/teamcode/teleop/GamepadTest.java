@@ -6,8 +6,8 @@ import com.qualcomm.robotcore.hardware.Gamepad;
 
 import java.lang.reflect.Field;
 
-@TeleOp(name = "Controller Test", group = "debug")
-public class ControllerTest extends LinearOpMode {
+@TeleOp(name = "Gamepad Test", group = "debug")
+public class GamepadTest extends LinearOpMode {
 
     @Override
     public void runOpMode() {
@@ -47,8 +47,8 @@ public class ControllerTest extends LinearOpMode {
         }
 
         try {
-            for(int i = 2; i <= 22; i++) {
-                testObj(gamepadFields[i], gamepad2);
+            for(Field i : gamepadFields) {
+                testObj(i, gamepad2);
             }
         } catch (InterruptedException e) {
             e.printStackTrace();
@@ -57,12 +57,11 @@ public class ControllerTest extends LinearOpMode {
     private void testObj(Field f, Gamepad gamepad) throws InterruptedException {
         telemetry.addLine("Please HOLD: " + f.getName());
         telemetry.update();
-        Thread.sleep(1500);
+        Thread.sleep(2500);
         try {
             Object obj = f.get(gamepad);
-            if((obj instanceof Integer && (int) obj != 0)
-                || (obj instanceof Boolean && (boolean) obj)
-                || (obj instanceof Float && (float) obj != 0)) {
+            if((obj instanceof Boolean && (boolean) obj)
+                || (obj instanceof Float && (float) obj > 0.3)) {
                 telemetry.addLine("OK");
             } else {
                 telemetry.addLine("FAIL");

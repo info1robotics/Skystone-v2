@@ -12,13 +12,9 @@ public class TeleOpDefault extends TeleOpBase {
 
     @Override
     public void entry() {
-
-//        new ChangeSpeedAction(this, true);
-//        new FoundationHookAction(this);
         new MoveRobotAction.MoveRobotMobilityDriver(this);
-        new MoveRobotAction.MoveRobotArmsDriver(this, true);
         new IntakeAction(this);
-//        new ArmsAction.ArmsElevation(this);
+        new ArmsAction.ArmsElevation(this);
         new ArmsAction.ArmsPlacingAndPickup(this);
         new ArmsAction.ArmsFoundationHooks(this);
 
@@ -26,13 +22,5 @@ public class TeleOpDefault extends TeleOpBase {
 
     @Override
     public void runLoop() {
-//        TelemetryPacket packet = new TelemetryPacket();
-//
-//        ArrayList<DetectedObject> detectedObjects = webcamVision.getAllDetections();
-//        for(int i = 0; i < detectedObjects.size(); i++) {
-//            packet.put(Integer.toString(i), detectedObjects.get(i));
-//        }
-//
-//        dashboard.sendTelemetryPacket(packet);
     }
 }

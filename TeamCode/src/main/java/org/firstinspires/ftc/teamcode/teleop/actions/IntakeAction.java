@@ -12,7 +12,7 @@ public class IntakeAction extends TeleOpAction {
 
     @Override
     public void run() {
-        if((gamepad2.y && !gamepad2.start) || (gamepad1.y && !gamepad1.start)) {
+        if((gamepad2.y && !gamepad2.start)) {
             intakeController.runIn(AppConstants.intakeMotors.INTAKE_SPEED);
             try {
                 Thread.sleep(200);
@@ -20,7 +20,7 @@ public class IntakeAction extends TeleOpAction {
                 e.printStackTrace();
             }
         }
-        if((gamepad2.a  && !gamepad2.start) || (    gamepad1.a  && !gamepad1.start)) {
+        if((gamepad2.a  && !gamepad2.start)) {
             intakeController.runOut(AppConstants.intakeMotors.INTAKE_SPEED);
             try {
                 Thread.sleep(200);

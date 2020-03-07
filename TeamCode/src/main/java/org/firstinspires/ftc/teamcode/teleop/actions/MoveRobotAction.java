@@ -48,51 +48,5 @@ public class MoveRobotAction {
         }
     }
 
-    public static class MoveRobotArmsDriver extends TeleOpAction {
-        public MoveRobotArmsDriver(TeleOpBase opMode, boolean useThread) {
-            super(opMode);
-        }
-
-        @Override
-        public void run() {
-
-            if(gamepad2.dpad_up || gamepad2.dpad_down || gamepad2.dpad_left || gamepad2.dpad_right || Math.abs(gamepad2.right_stick_x) > 0.1) {
-
-                double drive = 0, strafe = 0, spin = 0;
-
-                if(gamepad2.dpad_up) {
-                    drive = 0;
-                    strafe = -1;
-                } else if(gamepad2.dpad_down) {
-                    drive = 0;
-                    strafe = 1;
-                } else if(gamepad2.dpad_left) {
-                    drive = -1;
-                    strafe = 0;
-                } else if(gamepad2.dpad_right) {
-                    drive = 1;
-                    strafe = 0;
-                }
-
-                drive = -drive;
-                spin = gamepad2.right_stick_x;
-
-                double currentSpeed = AppConstants.robotMovement.MOVEMENT_SPEED_SLOW;
-
-                drive *= currentSpeed;
-                strafe *= currentSpeed;
-                spin *= currentSpeed;
-
-                movementController.moveTeleOp(drive, strafe, spin);
-            } else {
-                movementController.stopAll();
-            }
-        }
-
-        @Override
-        void onThreadDestruction() {
-
-        }
-    }
 
 }

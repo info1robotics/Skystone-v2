@@ -15,7 +15,6 @@ public abstract class AutonomousBase extends LinearOpMode {
     public MovementController movementController;
     public ArmsController armController;
     public IntakeController intakeController;
-//    public WebcamVision visionController;
     public SampleMecanumDriveBase roadController;
 
     private FtcDashboard dashboard;
@@ -32,10 +31,8 @@ public abstract class AutonomousBase extends LinearOpMode {
                 this);
         armController = new ArmsController(hardwareMap, telemetry, this);
         intakeController = new IntakeController(hardwareMap, telemetry, this);
-//        visionController = new WebcamVision(hardwareMap, dashboardTelemetry);
         roadController = new SampleMecanumDriveREV(hardwareMap);
 
-        //FtcDashboard.getInstance().startCameraStream(visionController.tfod, 0);
 
 
         while (!isStarted() && !isStopRequested()) {
