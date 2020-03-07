@@ -44,12 +44,12 @@ public class ArmsController {
 
     }
 
-    public void arm1Up(double speed) {
+    public void liftingArmUp(double speed) {
         liftingArm1.setPower(speed);
         liftingArm2.setPower(-1.0 * speed);
     }
 
-    public void arm1Down(double speed) {
+    public void liftingArmDown(double speed) {
         liftingArm1.setPower(-1.0 * speed);
         liftingArm2.setPower(speed);
     }
