@@ -29,32 +29,14 @@ public class IntakeController {
         currentPower = speed * direction;
     }
 
-
-    private void runEase() {
-        while(currentPower > 1.0 / 64.0 || currentPower < -1.0 / 64.0) {
-            run(currentPower);
-            currentPower /= 64.0;
-        }
-        stopAll();
-    }
-
-
-    private void run(double power) {
-        motorLeft.setPower(power);
-        motorRight.setPower(-1.0 * power);
-        currentPower = power;
-    }
-
     public void runIn(double speed) {
         if(currentPower == 1.0 || currentPower == 0) {
-            runEase();
             run(speed, -1.0);
         } else stopAll();
     }
 
     public void runOut(double speed) {
         if(currentPower == -1.0 || currentPower == 0) {
-            runEase();
             run(speed, 1.0);
         } else stopAll();
 
