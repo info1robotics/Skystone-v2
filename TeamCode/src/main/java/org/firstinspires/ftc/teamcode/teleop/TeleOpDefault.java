@@ -15,7 +15,7 @@ public class TeleOpDefault extends TeleOpBase {
         new MoveRobotAction.MoveRobotMobilityDriver(this);
         new IntakeAction(this);
         new ArmsAction.ArmsElevation(this);
-        new ArmsAction.ArmsPlacingAndPickup(this);
+        new ArmsAction.ArmsPlacingPickupAndClaw(this);
         new ArmsAction.ArmsFoundationHooks(this);
 
     }

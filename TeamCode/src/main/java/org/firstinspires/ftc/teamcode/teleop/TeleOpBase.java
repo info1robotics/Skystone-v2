@@ -18,10 +18,23 @@ import roadrunner.drive.mecanum.SampleMecanumDriveREV;
 
 public abstract class TeleOpBase extends LinearOpMode {
 
+    public MovementController movementController;
+    public ArmsController armsController;
+    public IntakeController intakeController;
+    public FtcDashboard dashboard;
+//    public WebcamVision webcamVision;
 
+    //ArmsController armsController;
 
     @Override
     public void runOpMode() {
+
+        movementController = new MovementController(hardwareMap, telemetry,
+                this);
+        armsController = new ArmsController(hardwareMap, telemetry, this);
+        intakeController = new IntakeController(hardwareMap, telemetry, this);
+//        webcamVision = new WebcamVision(hardwareMap, telemetry);
+        dashboard = FtcDashboard.getInstance();
 
 
 
@@ -35,11 +48,11 @@ public abstract class TeleOpBase extends LinearOpMode {
 
         entry();
 
-
         while(opModeIsActive()) {
             runLoop();
             idle();
         }
+
     }
 
     public abstract void entry();

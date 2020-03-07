@@ -8,12 +8,6 @@ import org.firstinspires.ftc.robotcore.external.Telemetry;
 
 public class IntakeController {
 
-    /// for refactoring purposes:
-    /// power = speed * direction
-    /// rest is not power
-    /// please refactor other code
-
-
     DcMotor motorLeft, motorRight;
 
     double currentPower = 0;
@@ -29,14 +23,29 @@ public class IntakeController {
         currentPower = speed * direction;
     }
 
+    private void run(double power) {
+        motorLeft.setPower(power);
+        motorRight.setPower(-1.0 * power);
+    }
+
+    private void runInterpolate(double targetSpeed, double targetDirection) {
+        double targetPower = targetSpeed * targetDirection;
+        while(currentPower < targetPower - 0.3) {
+            currentPower += (targetPower - currentPower) / 2;
+            run(currentPower);
+        }
+    }
+
     public void runIn(double speed) {
         if(currentPower == 1.0 || currentPower == 0) {
+            runInterpolate(speed, -1.0);
             run(speed, -1.0);
         } else stopAll();
     }
 
     public void runOut(double speed) {
         if(currentPower == -1.0 || currentPower == 0) {
+            runInterpolate(speed, 1.0);
             run(speed, 1.0);
         } else stopAll();
 

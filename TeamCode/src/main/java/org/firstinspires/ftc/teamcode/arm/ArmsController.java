@@ -21,7 +21,7 @@ public class ArmsController {
 
     Servo stoneClawElevator, stoneClawGrabber;
 
-    boolean isCarligHolding = false;
+    boolean hookHolding = false;
 
     public ArmsController(HardwareMap hardwareMap, Telemetry console, LinearOpMode opMode) {
         this.opMode = opMode;
@@ -70,12 +70,12 @@ public class ArmsController {
     }
 
     public void stoneHookToggle() {
-        if(isCarligHolding) {
+        if(hookHolding) {
             stoneHook.setPosition(AppConstants.servoMotors.STONE_HOOK_IDLE);
         } else {
             stoneHook.setPosition(AppConstants.servoMotors.STONE_HOOK_HOLD);
         }
-        isCarligHolding = !isCarligHolding;
+        hookHolding = !hookHolding;
     }
 
     public void stopDc() {
@@ -102,11 +102,11 @@ public class ArmsController {
     }
 
     public void grabClaw() {
-        stoneClawElevator.setPosition(AppConstants.servoMotors.STONE_CLAW_GRABBER_HOLD);
+        stoneClawGrabber.setPosition(AppConstants.servoMotors.STONE_CLAW_GRABBER_HOLD);
     }
 
     public void releaseClaw() {
-        stoneClawElevator.setPosition(AppConstants.servoMotors.STONE_CLAW_GRABBER_IDLE);
+        stoneClawGrabber.setPosition(AppConstants.servoMotors.STONE_CLAW_GRABBER_IDLE);
     }
 
 }

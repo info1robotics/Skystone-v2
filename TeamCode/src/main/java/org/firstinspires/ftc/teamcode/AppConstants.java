@@ -29,12 +29,12 @@ public class AppConstants {
 
     @Config
     public static class servoMotors {
-        public static final double STONE_CLAW_ELEVATOR_UP = 0.0;
-        public static final double STONE_CLAW_ELEVATOR_DOWN = 0.0;
+        public static double STONE_CLAW_ELEVATOR_UP = 0.0;
+        public static double STONE_CLAW_ELEVATOR_DOWN = 0.25;
 
 
-        public static final double STONE_CLAW_GRABBER_IDLE = 0.0;
-        public static final double STONE_CLAW_GRABBER_HOLD = 0.5;
+        public static double STONE_CLAW_GRABBER_IDLE = 1.0;
+        public static double STONE_CLAW_GRABBER_HOLD = 0.0;
 
         public static double STONE_HOOK_HOLD = 1.0;
         public static double STONE_HOOK_IDLE = 0.0;
